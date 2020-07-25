@@ -14,13 +14,13 @@
 
 一般先创建一个议题（Issue）：
 
-![img](../../markdown_pic/ToolsSkills_Gitmerge1.png)
+![img](../zypictures/git/ToolsSkills_Gitmerge1.png)
 
 #### 2.创建合并请求
 
 再创建一个合并请求（Create merge request），分支名可以自己修改，如 test_dev
 
-![img](../../markdown_pic/ToolsSkills_Gitmerge2.png)
+![img](../zypictures/git/ToolsSkills_Gitmerge2.png)
 
 #### 3. 本地检出分支
 
