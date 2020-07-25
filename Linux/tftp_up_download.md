@@ -12,9 +12,9 @@
 1. IPC（客户端）向windows（服务器）上传文件：
 `tftp -pl  file  serverip`  ：在执行这条命令的目录下，有一个file，serverip 这里指windows的IP地址（自己作为client，windows这里就是server了）
 例如：将一个test_upload.txt文件上传到windows的某文件中
-![img](../../markdown_pic/TestDeveloping_ftp_upload.png)
+![img](../zypictures/Linux/TestDeveloping_ftp_upload.png)
   
 2. 从windows（服务器）下载文件到 IPC（客户端）的当前目录：
 `tftp -gr file_path serverip`：（这里file_path指服务器上tftp默认设置的目录里的文件，可以更改 file_path 路径）
 例如：将windows的某文件中一个文件下载下来
-![img](../../markdown_pic/TestDeveloping_ftp_download.png)
+![img](../zypictures/Linux/TestDeveloping_ftp_download.png)
