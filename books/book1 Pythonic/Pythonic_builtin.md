@@ -19,9 +19,7 @@ object 和 type的关系很像鸡和蛋的关系，先有object还是先有type�
 
 这两种关系使用下面这张图简单示意，继承关系使用实线从子到父连接，类型实例关系使用虚线从实例到类型连接：
 
-![img](../../../markdown_pic/继承和实例.jpg)
-
-
+![](../../zypictures/books/继承和实例.jpg)
 
 我们将使用一块白板来描述一下Python里面对象的关系，白板划分成三列。
 
@@ -69,7 +67,7 @@ object是一个type，object is and instance of type。即**object是type的一�
 
 此时，白板上对象的关系如下图：
 
-![img](../../../markdown_pic/type&object.jpg)
+![img](../../zypictures/books/type&object.jpg)
 
  引入list, dict, tuple 这些内置数据类型来看看： 
 它们的父类都是object，类型都是type。 
@@ -103,7 +101,7 @@ test(mylist)
 
 把它们加到白板上去：
 
-![img](../../../markdown_pic/type&object2.jpg)
+![img](../../zypictures/books/type&object2.jpg)
 
  白板上的虚线表示源是目标的实例，实线表示源是目标的子类。
 即: 左边的是右边的类型，上面的是下面的父亲。
@@ -138,7 +136,7 @@ test(c)
 
 再更新一下白板：
 
-![img](../../../markdown_pic/type&object3.jpg)
+![img](../../zypictures/books/type&object3.jpg)
 
 白板上的第一列，目前只有type，我们先把这列的东西叫Type。
 白板上的第二列，它们既是第三列的类型，又是第一列的实例，我们把这列的对象叫TypeObject。
@@ -171,11 +169,9 @@ print(TM.__bases__)	 # (<class 'object'>,)
 第二列，TypeObject列，也称类列，object是所有类的父亲，大部份我们直接使用的数据类型都存在这个列的。
 第三列，实例列，实例是对象关系链的末端，不能再被子类化和实例化。
 
-
-
 补充一张知乎上的图：
 
- ![img](../../../markdown_pic/type&object4.jpg) 
+![img](../../zypictures/books/type&object4.jpg) 
 
 
 
@@ -211,7 +207,7 @@ print(MyClass().__class__)  # <class '__main__.dynamic_class.<locals>.A'>
 print(MyClass.__bases__)  # (<class 'object'>,)
 ```
 
-MyClass的类型是type，MyClass()的类型是  <class '__main__.dynamic_class.<locals>.A'>。
+MyClass的类型是type，MyClass()的类型是  `<class '__main__.dynamic_class.<locals>.A'>`。
 
 type还可以这样使用：
 
@@ -243,10 +239,6 @@ Out[7]: 1
 ```
 
 type通过接受类的描述作为参数返回一个对象，这个对象可以被继承， 属性能够被访问，它实际是一个类，其创建由type控制，有type创建的对象的`__class__`类型为type。type是Python的一个内建元类，用来指导类的生成。除了用内建元类type，用户也可以通过继承type来自定义元类。
-
-
-
-
 
 ---
 
@@ -313,7 +305,8 @@ AttributeError: 'NoneType' object has no attribute 'a'
   # 但是如果使用 *args 或者 **kwargs就避免此问题的出现。
   ```
 
-  
+
+---
 
 ## 名字查找机制
 
@@ -349,7 +342,7 @@ Python的名字查找机制：
 2. 在模块内找，即在globals()里面找
 3. 在外层找，即在内置模块中找，也就是在`__builtin__`中找
 
-
+---
 
 ## 描述符机制
 
@@ -387,7 +380,7 @@ Out[5]: <function __main__.A.a_method(self)>
 
 通过`.` 操作符访问一个属性时，如果访问的是实例属性，与直接通过`__dict__`属性获取响应的元素是一样的。
 
-
+---
 
 ## 使用更为安全的property
 
@@ -485,12 +478,10 @@ property的优势：
   ```
 
   创建一个property实际上就是将其属性的访问与特定的函数关联起来，相对于标准属性的访问，其工作原理如图所示，property相当于一个分发器，对某个属性的访问并不直接操作具体的对象，而对标准属性的访问没有中间这一层，直接访问存储属性的对象。
-  ![1571237955226](../../../markdown_pic/property工作原理.png)
+  ![1571237955226](../../zypictures/books/property工作原理.png)
 
 - 代码可维护性更好。property对属性进行再封装， 以类似接口的形式呈现给用户，以统一的语法来访问属性，当具体实现需要改变的时候（如改变某个内部变量，或赋值或取值的计算方式改变），访问的方式依旧可以保留一致。
 - 控制属性访问权限，提高数据安全性
-
-
 
 由于property是特殊的类，那么就可以被继承，因此用户可以根据需要定义property。
 
