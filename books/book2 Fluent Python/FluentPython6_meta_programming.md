@@ -205,7 +205,7 @@ class ClassFour(ClassThree):
 
 没有说 str 或 LineItem 继承自type。而是说，str和LineItem是type的实例。这两个类是object的子类。
 
-![image-20200411092354921](../../../markdown_pic/book2_metaclass1.png)
+![image-20200411092354921](../../zypictures/books/book2_metaclass1.png)
 
 两个示意图都是正确的。左边的示意图强调 **str、type和LineItem是object的子类**。右边的示意图则清楚地表明**str、object和LineItem是type的实例**，因为它们都是类
 
@@ -227,7 +227,7 @@ object类和type类之间的关系很独特：object是type的实例，而type�
 
 向上追溯，ABCMeta最终所属的类也是type。所有类都直接或间接地是type的实例，不过只有元类同时也是type的子类。若想理解元类，一定要知道这种关系：元类（如ABCMeta）从type类继承了构建类的能力。
 
-![image-20200411094229058](../../../markdown_pic/book2_metaclass2.png)
+![image-20200411094229058](../../zypictures/books/book2_metaclass2.png)
 
 所有类都是type的实例，但是元类还是type的子类，因此可以作为制造类的工厂。
 

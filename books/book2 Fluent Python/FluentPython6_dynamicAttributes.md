@@ -243,11 +243,11 @@ print(item.weight)
 
 1. 使用 property(get_weight, set_weight)：
 
-![](../../../markdown_pic/book2_LineItem2.png)
+![](../../zypictures/books/book2_LineItem2.png)
 
 2. 使用 @property：
 
-![image-20200331232436434](../../../markdown_pic/book2_LineItem1.png)
+![image-20200331232436434](../../zypictures/books/book2_LineItem1.png)
 
 ---
 

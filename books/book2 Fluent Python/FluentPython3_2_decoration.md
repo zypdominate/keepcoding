@@ -214,11 +214,11 @@ Python 编译函数的定义体时，它判断 b 是局部变量，因为在函�
 
 一个函数，读取一个局部变量和一个全局变量：
 
-![image-20191207145809473](../../../markdown_pic/book2_varibale2.png)
+![image-20191207145809473](../../zypictures/books/book2_varibale2.png)
 
 b是局部变量，因为在函数的定义体中给它赋值了：
 
-![image-20191207144909698](../../../markdown_pic/book2_varibale1.png)
+![image-20191207144909698](../../zypictures/books/book2_varibale1.png)
 
 这里的`LOAD_GLOBAL  1 (b)`：加载本地名称 b，这表明，编译器把 b 视作局部变量，即使在后面才为 b 赋值，因为变量的种类（是不是局部变量）不能改变函数的定义体。
 
@@ -259,7 +259,7 @@ print(avg2(3))  # 3.0
 print(avg2(9))  # 6.0
 ```
 
-![image-20191207232030452](../../../markdown_pic/book2_closure.png)
+![image-20191207232030452](../../zypictures/books/book2_closure.png)
 
 **avg 的闭包延伸到那个函数的作用域之外，包含自由变量 series 的绑定。**
 

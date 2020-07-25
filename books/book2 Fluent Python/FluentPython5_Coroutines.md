@@ -96,7 +96,7 @@ StopIteration
 
 simple_coroutine2 协程的执行过程分为3个阶段：各个阶段都在yield表达式中结束，而且下一个阶段都从那一行代码开始，然后再把yield表达式的值赋给变量。
 
-![image-20200308175931900](../../../markdown_pic/book2_coroutine_demo.png)
+![image-20200308175931900](../../zypictures/books/book2_coroutine_demo.png)
 
 ---
 

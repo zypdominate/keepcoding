@@ -60,7 +60,7 @@ class answerDict(UserDict):
 
 任何实现多重继承的语言都要处理潜在的命名冲突，这种冲突由不相关的祖先类实现同名方法引起。
 
-![image-20200208192102700](../../../markdown_pic/java_inheritance_multiple.png)
+![image-20200208192102700](../../zypictures/books/java_inheritance_multiple.png)
 
 ```python
 class A:

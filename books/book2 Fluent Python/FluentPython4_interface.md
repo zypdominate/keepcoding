@@ -4,7 +4,7 @@
 
 定义为抽象基类的 Sequence 正式接口：	
 
-![image-20200128142433212](../../../markdown_pic/book2_seqformalinterface.png)
+![image-20200128142433212](../../zypictures/books/book2_seqformalinterface.png)
 
 Sequence 抽象基类和 collections.abc 中相关抽象类的 UML 类图，箭头由子类指向超类，以斜体显示的是抽象方法。
 
@@ -150,7 +150,7 @@ french = FrenchDeck2()
 Sequence 和 MutableSequence 抽象基类的方法不全是抽象的：
 下面是MutableSequence 抽象基类和 collections.abc 中它的超类的 UML 类图（箭头由子类指向祖先；以斜体显示的名称是抽象类和抽象方法）。
 
-![](../../../markdown_pic/book2_MutableSequence.png)FrenchDeck2 从 Sequence 继 承 了 几 个 拿 来 即 用 的 具 体 方 法：`__contains__` 、`__iter__`、 `__reversed__`、`index` 和 `count` 。FrenchDeck2 从 MutableSequence 继 承 了 `append`、`extend`、
+![](../../zypictures/books/book2_MutableSequence.png)FrenchDeck2 从 Sequence 继 承 了 几 个 拿 来 即 用 的 具 体 方 法：`__contains__` 、`__iter__`、 `__reversed__`、`index` 和 `count` 。FrenchDeck2 从 MutableSequence 继 承 了 `append`、`extend`、
 `pop`、`remove` 和 `__iadd__`。
 
 ---
@@ -166,7 +166,7 @@ Sequence 和 MutableSequence 抽象基类的方法不全是抽象的：
 Python 3.5 在 collections.abc 模块中定义了 22 个抽象基类，简要的 UML 类图（没有属
 性名称）。collections.abc 的官方文档中有个不错的表格（https://docs.python.org/3.7/library/collections.abc.html#collections-abstract-base-classes），对各个抽象基类做了总结，说明了相互之间的关系，以及各个基类提供的抽象方法和具体方法（称为“混入方法”）。图中有很多多重继承。
 
-![](../../../markdown_pic/book2_abstract_baseclass.png)
+![](../../zypictures/books/book2_abstract_baseclass.png)
 
 1. **Iterable、Container 和 Sized**
    各个集合应该继承这三个抽象基类，或者至少实现兼容的协议。Iterable 通过 `__iter__` 方法支持迭代，Container 通过 `__contains__` 方法支持 in 运算符，Sized 通过 `__len__` 方法支持 len() 函数。
@@ -189,9 +189,9 @@ Python 3.5 在 collections.abc 模块中定义了 22 个抽象基类，简要的
 
 collections.abc 的官方文档中的表格：
 
-![image-20200129153451176](../../../markdown_pic/book2_abstract_baseclass1.png)
+![image-20200129153451176](../../zypictures/books/book2_abstract_baseclass1.png)
 
-![image-20200129153516107](../../../markdown_pic/book2_abstract_baseclass2.png)
+![image-20200129153516107](../../zypictures/books/book2_abstract_baseclass2.png)
 
 ---
 

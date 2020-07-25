@@ -112,7 +112,7 @@ StopIteration 异常表明迭代器到头了。Python 语言内部会处理 for 
 - `__iter__`
   返回 self，以便在应该使用可迭代对象的地方使用迭代器，例如在 for 循环中。
 
-这个接口在 collections.abc.Iterator 抽象基类中制定。这个类定义了 `__next__` 抽象方法，而且继承自 Iterable 类；`__iter__` 抽象方法则在 Iterable 类中定义。![image-20200217224919407](../../../markdown_pic/book2_iter_next.png)
+这个接口在 collections.abc.Iterator 抽象基类中制定。这个类定义了 `__next__` 抽象方法，而且继承自 Iterable 类；`__iter__` 抽象方法则在 Iterable 类中定义。![image-20200217224919407](../../zypictures/books/book2_iter_next.png)
 
 图解：Iterable 和 Iterator 抽象基类。以斜体显示的是抽象方法。具体的 `Iterable.__iter__` 方法应该返回一个 Iterator 实例。具体的 Iterator 类必须实现 `__next__` 方法。`Iterator.__iter__` 方法直接返回实例本身。
 

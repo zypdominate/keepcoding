@@ -14,7 +14,7 @@
 
 将定义一个Quantity描述符，LineItem类会用到两个Quantity实例：一个用于管理weight属性，另一个用于管理price属性。示意图有助于理解，如图所示:
 
-![image-20200404212558097](../../../markdown_pic/book2_Quantity.png)
+![image-20200404212558097](../../zypictures/books/book2_Quantity.png)
 
 在图中，“weight”这个词出现了两次，因为其实有两个不同的属性都叫weight：一个是LineItem的类属性，另一个是各个LineItem对象的实例属性。price也是如此。
 
@@ -77,7 +77,7 @@ class LineItem:
 
 为了避免在描述符声明语句中重复输入属性名，我们将为每个Quantity实例的storage_name属性生成一个独一无二的字符串。更新后的Quantity和LineItem类的UML类图：
 
-![image-20200405000039530](../../../markdown_pic/book2_Quantity2.png)
+![image-20200405000039530](../../zypictures/books/book2_Quantity2.png)
 
 为了生成storage_name，我们以`'_Quantity#'`为前缀，然后在后面拼接一个整数：`Quantity.__counter`类属性的当前值，每次把一个新的Quantity描述符实例依附到类上，都会递增这个值。在前缀中使用井号能避免storage_name与用户使用点号创建的属性冲突，因为nutmeg._Quantity#0是无效的Python句法。但是，内置的getattr和setattr函数可以使用这种“无效的”标识符获取和设置属性，此外也可以直接处理实例属性__dict__。
 
@@ -227,7 +227,7 @@ AutoStorage：自动管理储存属性的描述符类。
 
 Validated：扩展AutoStorage类的抽象子类，覆盖 `__set__` 方法，调用必须由子类实现的validate方法。
 
-![image-20200405132615175](../../../markdown_pic/book2_Quantity3_refactor.png)
+![image-20200405132615175](../../zypictures/books/book2_Quantity3_refactor.png)
 
 Validated、Quantity和NonBlank三个类之间的关系体现了模板方法设计模式。具体而言，`Validated.__set__`方法是这种模板方法的例证：**一个模板方法用一些抽象的操作定义一个算法，而子类将重定义这些操作以提供具体的行为。**
 

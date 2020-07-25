@@ -21,7 +21,7 @@
 
 具体策略:  “策略”的具体子类。fidelityPromo、BulkPromo 和 LargeOrderPromo 是这里实现的三个具体策略。
 
-![image-20191124214028548](../../../markdown_pic/book2_function.png)
+![image-20191124214028548](../../zypictures/books/book2_function.png)
 
 ```python
 from abc import ABC, abstractmethod
