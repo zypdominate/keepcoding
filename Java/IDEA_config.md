@@ -2,8 +2,8 @@
 
 检查编译输出路径File—project struture
 
-![image-20200130103123815](../../../markdown_pic/IDEAconfig_structure.png)
+![image-20200130103123815](../zypictures/Java/IDEAconfig_structure.png)
 
 #### 2. IDEA 无法运行脚本
 
-![image-20200130110424618](../../../markdown_pic/IDEAconfig_structure2.png)
+![image-20200130110424618](../zypictures/Java/IDEAconfig_structure2.png)

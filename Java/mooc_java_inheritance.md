@@ -31,7 +31,7 @@ public ThisClass extends SuperClass {
 
 子类的对象可以赋值给父类的变量；
 
-![image-20200203151920033](../../../markdown_pic/java_inheritance_demo.png)
+![image-20200203151920033](../zypictures/Java/java_inheritance_demo.png)
 
 ```java
 Vehicle v1 = new Vehicle();
@@ -80,9 +80,9 @@ public class Database {
 
 子类的对象可以放在存放父类对象的容器里；
 
-![image-20200203155410718](../../../markdown_pic/java_inheritance_container.png)
+![image-20200203155410718](../zypictures/Java/java_inheritance_container.png)
 
-![image-20200203155845507](../../../markdown_pic/java_inheritance_container2.png)
+![image-20200203155845507](../zypictures/Java/java_inheritance_container2.png)
 
 ---
 
@@ -128,7 +128,7 @@ public class Database {
 
 - 父类的对象不能赋值给子类的对象！
 
-  ![](../../../markdown_pic/java_inheritance_cast.png)
+  ![](../zypictures/Java/java_inheritance_cast.png)
 
   
 
@@ -146,7 +146,7 @@ public class Database {
   }
   ```
 
-  ![image-20200204000054070](../../../markdown_pic/java_inheritance_cast2.png)
+  ![image-20200204000054070](../zypictures/Java/java_inheritance_cast2.png)
 
 
 
@@ -160,7 +160,7 @@ public class Database {
 
   通过造型，把一个类型(Vehicle)的变量(vehicle)强制"造型"成另外一个类型(Car)，赋值给另外类型那个对象(car)，并不总是安全的，取决于被"造型"的变量(vehicle)当时实际管理的类型是什么；如果不合理，则会报错：ClassCastException。
 
-  ![](../../../markdown_pic/java_inheritance_cast3.png)
+  ![](../zypictures/Java/java_inheritance_cast3.png)
 
 与**类型装换**的区别：
 
@@ -178,9 +178,9 @@ int i = (int)10.2 // 类型装换
 - 向上造型是默认的，不需要运算符( )；
 - 向上造型总是安全的；
 
-![image-20200204135853325](../../../markdown_pic/java_inheritance_cast4.png)
+![image-20200204135853325](../zypictures/Java/java_inheritance_cast4.png)
 
-![image-20200204135922427](../../../markdown_pic/java_inheritance_cast5.png)
+![image-20200204135922427](../zypictures/Java/java_inheritance_cast5.png)
 
 ---
 

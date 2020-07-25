@@ -36,11 +36,11 @@ try {
 
 不好的代码示例：
 
-![image-20200225225840460](../../../markdown_pic/java_notgood_exceptiont.png)
+![image-20200225225840460](../zypictures/Java/java_notgood_exceptiont.png)
 
 好的处理方式示例：用上**异常机制**
 
-![](../../../markdown_pic/java_good_exceptiont.png)
+![](../zypictures/Java/java_good_exceptiont.png)
 
 异常机制最大的好处是 **清晰地分开了正常的业务逻辑代码与遇到情况时的处理代码**。
 
