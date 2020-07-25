@@ -13,11 +13,11 @@
 
 例：类的继承关系
 
-![1565504179977](../../markdown_pic/Tools_Skills_pycharm_Hierarchy.png)
+![1565504179977](../zypictures/ToolsSkills/Tools_Skills_pycharm_Hierarchy.png)
 
 例：函数方法的调用关系
 
-![1565504646700](../../markdown_pic/Tools_Skills_pycharm_Hierarchy2.png)
+![1565504646700](../zypictures/ToolsSkills/Tools_Skills_pycharm_Hierarchy2.png)
 
 ---
 
@@ -93,7 +93,7 @@ navigate (以下快捷键按两下可以展示出非当前文件)
 
 自定义模板：比如创建一个函数模板时，以后只要敲def后直接输入函数名和函数主体了，经常使用的也有创建类。
 
-![1565404313190](../../markdown_pic/liveTemplates1.png)
+![](../zypictures/ToolsSkills/liveTemplates1.png)
 
 ---
 
@@ -101,9 +101,9 @@ navigate (以下快捷键按两下可以展示出非当前文件)
 
 pycharm提供的有 if, ifn, ifnn, main, not, par, print, return, while.
 
-![1565405008252](../../markdown_pic/Tools_Skills_pycharm_postfix.png)
+![1565405008252](../zypictures/ToolsSkills/Tools_Skills_pycharm_postfix.png)
 
-![1565405444644](../../markdown_pic/Tools_Skills_pycharm_postfix2.png)
+![1565405444644](../zypictures/ToolsSkills/Tools_Skills_pycharm_postfix2.png)
 
 ---
 
