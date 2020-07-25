@@ -207,7 +207,7 @@ Python：
 
 如图所示：
 
-![1569590109567](../../../markdown_pic/Python和C的赋值.png)
+![1569590109567](../../zypictures/books/Python和C的赋值.png)
 
 ## 警惕默认参数潜在的问题
 
@@ -315,7 +315,7 @@ def test(var,var2=1):
 
 对于不同类型的输入，对比两者的差异：
 
-![微信图片_20190928214506](../../../markdown_pic/book1_str_repr.jpg)
+![微信图片_20190928214506](../../zypictures/books/book1_str_repr.jpg)
 
 - 两者的面向的对象不同：str()主要是面向用户，其目的是可读性，返回形式为用户友好性和可读性都较强的字符串类型。而repr()面向的是python解释器、程序员，返回值为Python解释器内部的含义，常作为debug用。
 - 在解释器中直接输入a时默认调用repr(）函数，而print(a)是调用str()函数
