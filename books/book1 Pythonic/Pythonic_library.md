@@ -365,7 +365,7 @@ json是一种轻量级数据交换格式，基于JavaScript的一个子集，可
 
 json的两大数据结构：名称/值对的集合、值的有序列表
 
-![1570266733734](../../../markdown_pic/json文档分解图.png)
+![1570266733734](../../zypictures/books/json文档分解图.png)
 
 ​	
 
