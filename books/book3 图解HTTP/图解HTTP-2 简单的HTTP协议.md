@@ -25,7 +25,7 @@ Host: hacker.jp
 
 请求报文是由**请求方法**、**请求URI**、**协议版本**、可选的**请求首部字段**和**内容实体**构成的。例如：
 
-![image-20200722221529802](../zypictures/books/ComputerNetwork_http2.1.png)
+![image-20200722221529802](../../zypictures/books/ComputerNetwork_http2.1.png)
 
 收到请求后的响应:
 
@@ -42,7 +42,7 @@ Content-Type:text/html
 
 响应报文基本上由**协议版本**、**状态码**（表示请求成功或失败的数字代码）、**用以解释状态码的原因短语**、**可选的响应首部字段**以及**实体主体**构成。例如：
 
-![image-20200722222101475](../zypictures/books/ComputerNetwork_http2.2.png)
+![image-20200722222101475](../../zypictures/books/ComputerNetwork_http2.2.png)
 
 ---
 
@@ -108,7 +108,7 @@ TRACE方法是让Web服务器端将之前的请求通信环回给客户端的方
 
 客户端通过TRACE方法可以查询发送出去的请求是怎样被加工修改/篡改的。这是因为，请求想要连接到源目标服务器可能会通过代理中转，TRACE方法就是用来确认连接过程中发生的一系列操作。但是，TRACE方法本来就不怎么常用，再加上它容易引发XST（Cross-SiteTracing，跨站追踪）攻击，通常就更不会用到了。
 
-![image-20200723234104976](../zypictures/books/ComputerNetwork_http2.3.png)
+![image-20200723234104976](../../zypictures/books/ComputerNetwork_http2.3.png)
 
 使用TRACE方法的请求·响应的例子:
 
@@ -132,7 +132,7 @@ Max-Forwords:2 (返回响应包含请求内容)
 
 CONNECT方法要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要使用 **SSL**（Secure Sockets Layer，安全套接层）和 **TLS**（TransportLayer Security，传输层安全）协议把通信内容加密后经网络隧道传输。
 
-![image-20200723234522309](../zypictures/books/ComputerNetwork_http2.4.png)
+![image-20200723234522309](../../zypictures/books/ComputerNetwork_http2.4.png)
 
 使用CONNECT方法的请求·响应的例子：
 
@@ -145,7 +145,7 @@ Host:proxy.hacker.jp
 HTTP/1.1 200 OK (之后进入网络隧道)
 ```
 
-![image-20200724002438909](../zypictures/books/ComputerNetwork_http2.5.png)
+![image-20200724002438909](../../zypictures/books/ComputerNetwork_http2.5.png)
 
 ---
 
@@ -153,15 +153,15 @@ HTTP/1.1 200 OK (之后进入网络隧道)
 
 HTTP协议的初始版本中，每进行一次HTTP通信就要断开一次TCP连接。
 
-![image-20200724002604027](../zypictures/books/ComputerNetwork_http2.6.png)
+![image-20200724002604027](../../zypictures/books/ComputerNetwork_http2.6.png)
 
 使用浏览器浏览一个包含多张图片的HTML页面时，在发送请求访问HTML页面资源的同时，也会请求该HTML页面里包含的其他资源。因此，每次的请求都会造成无谓的TCP连接建立和断开，增加通信量的开销。
 
-![image-20200724003222617](../zypictures/books/ComputerNetwork_http2.7.png)
+![image-20200724003222617](../../zypictures/books/ComputerNetwork_http2.7.png)
 
 持久连接（HTTP Persistent Connections，也称为HTTP keep-alive或HTTP connectionreuse）的方法。特点：**只要任意一端没有明确提出断开连接，则保持TCP连接状态。**
 
-![image-20200724003955502](../zypictures/books/ComputerNetwork_http2.8.png)
+![image-20200724003955502](../../zypictures/books/ComputerNetwork_http2.8.png)
 
 持久连接的好处在于减少了TCP连接的重复建立和断开所造成的额外开销，减轻了服务器端的负载。另外，减少开销的那部分时间，使HTTP请求和响应能够更早地结束，这样Web页面的显示速度也就相应提高了。
 
@@ -171,7 +171,7 @@ HTTP协议的初始版本中，每进行一次HTTP通信就要断开一次TCP连
 
 持久连接使得多数请求以管道化（pipelining）方式发送成为可能。从前发送请求后需等待并收到响应，才能发送下一个请求。管道化技术出现后，不用等待响应亦可直接发送下一个请求。
 
-![image-20200724004335997](../zypictures/books/ComputerNetwork_http2.9.png)
+![image-20200724004335997](../../zypictures/books/ComputerNetwork_http2.9.png)
 
 这样就能够做到同时并行发送多个请求，而不需要一个接一个地等待响应了。管道化技术则比持久连接还要快。请求数越多，时间差就越明显。
 

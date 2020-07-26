@@ -8,7 +8,7 @@
 
 计算机与网络设备要相互通信，双方就必须基于相同的方法。比如，如何探测到通信目标、由哪一边先发起通信、使用哪种语言进行通信、怎样结束通信等规则都需要事先确定。不同的硬件、操作系统之间的通信，所有的这一切都需要一种规则。而我们就把这种规则称为**协议（protocol）**。
 
-![image-20200718000751925](../zypictures/books/ComputerNetwork_http1.png)
+![image-20200718000751925](../../zypictures/books/ComputerNetwork_http1.png)
 
 TCP/IP是互联网相关的各类协议族的总称。
 
@@ -36,7 +36,7 @@ TCP/IP协议族里重要的一点就是分层。TCP/IP协议族按层次分别�
 
 #### TCP/IP通信传输流
 
-![image-20200718000751925](../zypictures/books/ComputerNetwork_http1.2.png)
+![image-20200718000751925](../../zypictures/books/ComputerNetwork_http1.2.png)
 
 利用TCP/IP协议族进行网络通信时，会通过分层顺序与对方进行通信。发送端从应用层往下走，接收端则往应用层往上走。
 
@@ -45,7 +45,7 @@ TCP/IP协议族里重要的一点就是分层。TCP/IP协议族按层次分别�
 3. 在**网络层**（IP协议），增加作为通信目的地的MAC地址后转发给**链路层**。
 4. 接收端的服务器在链路层接收到数据，按序往上层发送，一直到应用层。当传输到应用层，才能算真正接收到由客户端发送过来的HTTP请求。
 
-![image-20200718001814203](../zypictures/books/ComputerNetwork_http1.3.png)
+![image-20200718001814203](../../zypictures/books/ComputerNetwork_http1.3.png)
 
 发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。这种把数据信息包装起来的做法称为**封装（encapsulate）**。
 
@@ -66,7 +66,7 @@ IP地址指明了节点被分配到的地址，MAC地址是指网卡所属的固
 - IP间的通信依赖MAC地址。在网络上，通信的双方在同一局域网（LAN）内的情况是很少的，通常是经过多台计算机和网络设备中转才能连接到对方。而在进行中转时，会利用下一站中转设备的MAC地址来搜索下一个中转目标。这时，会采用ARP协议（Address ResolutionProtocol）。ARP是一种用以解析地址的协议，根据通信方的IP地址就可以反查出对应的MAC地址。
 - 在到达通信目标前的中转过程中，那些计算机和路由器等网络设备只能获悉很粗略的传输路线。这种机制称为路由选择（routing）。无论哪台计算机、哪台网络设备，它们都无法全面掌握互联网中的细节。
 
-![image-20200718002753610](../zypictures/books/ComputerNetwork_http1.4.png)
+![image-20200718002753610](../../zypictures/books/ComputerNetwork_http1.4.png)
 
 #### 可靠的TCP
 
@@ -87,7 +87,7 @@ TCP协议的**三次握手**（three-way handshaking），准确无误地将数�
 
 若在握手过程中某个阶段莫名中断，TCP协议会再次以相同的顺序发送相同的数据包。
 
-![image-20200718003708032](../zypictures/books/ComputerNetwork_http1.5.png)
+![image-20200718003708032](../../zypictures/books/ComputerNetwork_http1.5.png)
 
 #### 域名解析-DNS
 
@@ -97,11 +97,11 @@ DNS（Domain Name System）服务是和HTTP协议一样位于应用层的协议�
 
 DNS协议提供**通过域名查找IP地址**，或逆向**从IP地址反查域名**的服务。
 
-![image-20200718085310238](../zypictures/books/ComputerNetwork_http1.6.png)
+![image-20200718085310238](../../zypictures/books/ComputerNetwork_http1.6.png)
 
 #### 各种协议与HTTP的关系
 
-![image-20200718090254020](../zypictures/books/ComputerNetwork_http1.7.png)
+![image-20200718090254020](../../zypictures/books/ComputerNetwork_http1.7.png)
 
 #### URL 和 URI
 
@@ -111,7 +111,7 @@ URI用字符串标识某一互联网资源，而URL表示资源的地点（互�
 
 URI格式：表示指定的URI，要使用涵盖全部必要信息的绝对URI、绝对URL以及相对URL。相对URL，是指从浏览器中基本URI处指定的URL，形如 /image/logo.gif。
 
-![image-20200718092600693](../zypictures/books/ComputerNetwork_http1.8.png)
+![image-20200718092600693](../../zypictures/books/ComputerNetwork_http1.8.png)
 
 登录信息（认证）：指定用户名和密码作为从服务器端获取资源时必要的登录信息（身份认证）。此项是可选项。
 
