@@ -18,7 +18,7 @@ BASIC认证的认证步骤：
 ![image-20200807235738600](../../zypictures/books/ComputerNetwork_http8.2.png)
 
 1. 请求的资源需要BASIC认证时，服务器会随状态码`401 Authorization Required`，返回带`WWW-Authenticate`首部字段的响应。该字段内包含认证的方式（BASIC）及Request-URI安全域字符串（realm）。
-2.  接收到状态码401的客户端为了通过BASIC认证，需要将**用户ID**及**密码**发送给服务器。发送的字符串内容是由用户ID和密码构成，两者中间以冒号（:）连接后，再经过Base64编码处理。
+2. 接收到状态码401的客户端为了通过BASIC认证，需要将**用户ID**及**密码**发送给服务器。发送的字符串内容是由用户ID和密码构成，两者中间以冒号（:）连接后，再经过Base64编码处理。
    - 假设用户ID为guest，密码是guest，连接起来就会形成`guest:guest`这样的字符串。然后经过Base64编码，最后的结果即是`Z3Vlc3Q6Z3Vlc3Q=`。把这串字符串写入首部字段`Authorization`后，发送请求。
    - 当用户代理为浏览器时，用户仅需输入用户ID和密码即可，浏览器会自动完成到Base64编码的转换工作。
 3. 接收到包含首部字段Authorization请求的服务器，会对认证信息的正确性进行验证。如验证通过，则返回一条包含Request-URI资源的响应。
@@ -41,13 +41,11 @@ DIGEST认证的认证步骤：
    - 该字段内包含质问响应方式认证所需的临时质询码（随机数，nonce）。
    - 首部字段WWW-Authenticate内必须包含realm和nonce这两个字段的信息。客户端就是依靠向服务器回送这两个值进行认证的。
    - nonce是一种每次随返回的401响应生成的任意随机字符串。该字符串通常推荐由Base64编码的十六进制数的组成形式，但实际内容依赖服务器的具体实现。
-
-2.  接收到401状态码的客户端，返回给服务器的响应中包含DIGEST认证必须的首部字段Authorization信息。
+2. 接收到401状态码的客户端，返回给服务器的响应中包含DIGEST认证必须的首部字段Authorization信息。
    - 首部字段Authorization内必须包含username、realm、nonce、uri和response的字段信息。其中，realm和nonce就是之前从服务器接收到的响应中的字段。
    - username是realm限定范围内可进行认证的用户名。
    - uri（digest-uri）即Request-URI的值，但考虑到经代理转发后Request-URI的值可能被修改，因此事先会复制一份副本保存在uri内。
    - response也可叫做Request-Digest，存放经过MD5运算后的密码字符串，形成响应码。
-
 3. 服务端接收到包含首部字段Authorization请求，确认认证信息的正确性。认证通过后则返回包含Request-URI资源的响应。
    - 这时会在首部字段Authentication-Info写入一些认证成功的相关信息，同时可以看到响应中没有带`WWW-Authenticate`首部字段。
    - DIGEST认证提供了高于BASIC认证的安全等级，但是和HTTPS的客户端认证相比仍旧很弱。DIGEST认证提供防止密码被窃听的保护机制，但并不存在防止用户伪装的保护机制。
