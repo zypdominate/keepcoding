@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# Description:
+# Description:快速排序
 # Author:zhuyuping
 # datetime:2020/8/11 23:56
 import random
