@@ -73,7 +73,7 @@
 
   - route -n 
 
-
+---
 
 #### 网络配置
 
@@ -97,7 +97,7 @@
   - `ip route add xxx.0.0.1/24 via 192.168.0.1`
     - route add -net xxx.0.0.0 netmask 255.255.255.0 gw 192.168.0.1
 
-
+---
 
 #### 路由命令
 
@@ -117,7 +117,7 @@
 
 - 删除时将 add 改为 del
 
-
+---
 
 #### 网络故障管理
 
@@ -232,7 +232,7 @@
 
   `ss -ntpl` 使用方法和 `netstat -npl` 相似。
 
-
+---
 
 #### 常用网络配置文件
 
@@ -257,8 +257,6 @@
   network.target                             static 
   ```
 
-
-
 - `systemctl list-unit-files NetworkManager.service`
 
   ```cmd
@@ -271,9 +269,8 @@
 
 - `systemctl enabled|disable NetworkManger`
 
-
-
 - `systemctl list-units` 查看活跃的单元
 - `systemctl status xxx ` 查看某个xxx服务的状态
 - `systemctl list-unit-files|grep enabled` 查看已启动的服务列表
 - `systemctl --failed` 查看启动失败的服务列表
+
