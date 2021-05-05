@@ -130,13 +130,174 @@ lrwx------ 1 root root 64 5月   3 17:15 2 -> /dev/pts/8
   echo "hello bash"
   ```
 
+---
+
+### 变量
+
+#### 变量赋值
+
+- 变量名=变量值
+
+  ```shell
+  a=123
+  ```
+
+- 使用`let`为变量赋值
+
+  ```cmd
+  let a=10+20
+  ```
+
+- 将命令赋值给变量
+
+  ```shell
+  l=ls
+  ```
+
+- 将命令结果赋值给变量，使用 `$()` 或者 ``
+
+  ```shell
+  letc=$(ls -l /etc)
+  ```
+
+- 变量值有空格等特殊字符可以包含在 “ ” 或 ‘’ 中
+
+---
+
+#### 变量的引用
+
+- `${变量名}`称作对变量的引用
+- `echo ${变量名}`查看变量的值
+- `${变量名}`在部分情况下可以省略为 `$变量名`
+
+```shell
+[foxit@localhost ~]$ str1="hello"
+[foxit@localhost ~]$ echo ${str1}
+hello
+[foxit@localhost ~]$ echo $str1
+hello
+[foxit@localhost ~]$ echo ${str1}23
+hello23
+[foxit@localhost ~]$ echo $str123
+
+```
+
+---
+
+#### 变量的作用范围
+
+- 变量的导出：`export`
+- 变量的删除：`unset`
+
+```shell
+[foxit@localhost ~]$ a=1
+[foxit@localhost ~]$ echo $a
+1
+[foxit@localhost ~]$ bash
+[foxit@localhost ~]$ echo $a
+
+[foxit@localhost ~]$ exit
+exit
+[foxit@localhost ~]$ echo $a
+1
+```
+
+```shell
+root@ubuntu:/# demo_var="hello subshell"
+root@ubuntu:/# vim test_demo.sh
+echo ${demo_var}
+root@ubuntu:/# chmod u+x test_demo.sh 
+root@ubuntu:/# bash test_demo.sh 
+
+root@ubuntu:/# ./test_demo.sh 
+
+root@ubuntu:/# source test_demo.sh 
+hello subshell
+root@ubuntu:/# . test_demo.sh 
+hello subshell
+```
+
+`bash` 进入子 Shell，`exit` 退出
+
+```shell
+root@ubuntu:/# export demo_var
+root@ubuntu:/# 
+root@ubuntu:/# bash test_demo.sh 
+hello subshell
+root@ubuntu:/# ./test_demo.sh 
+hello subshell
+```
+
+```shell
+root@ubuntu:/home# unset demo_var
+root@ubuntu:/home# echo ${demo_var}
+
+```
+
+---
+
+### 系统环境变量
+
+环境变量：每个 Shell 打开都可以获取到的变量
+
+- `set`  和 `env` 命令
+
+- `$?$$$0`
+
+  `$?` 上一条命令是否执行成功
+  `$$` 显示当前进程pid
+  `$0` 当前进程名称
+
+- `$PATH`
+
+- `$PS1`
+
+位置变量
+
+- `$1$2...$n`
+
+查看环境变量：`env |more`，`set |more`
 
 
 
+```shell
+root@ubuntu:/home# echo $USER
+root
+root@ubuntu:/home# echo $UID
+0
+root@ubuntu:/home# echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 
+root@ubuntu:/home# PATH=$PATH:/home
+root@ubuntu:/home# echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home
+```
 
+```shell
+root@ubuntu:/home# cat test_demo.sh 
+echo $$
+echo $0
+root@ubuntu:/home# . test_demo.sh 
+1695
+-bash
+root@ubuntu:/home# ./test_demo.sh 
+7516
+./test_demo.sh
+```
 
+```shell
+root@ubuntu:/home# cat test_demo.sh 
+#!/bin/bash
+echo $1
+echo ${2-_}
 
+root@ubuntu:/home# ./test_demo.sh 11 
+11
+_
+root@ubuntu:/home# ./test_demo.sh 11 22
+11
+22
+```
 
 
 
