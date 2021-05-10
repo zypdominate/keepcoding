@@ -5,13 +5,44 @@
 标准shell脚本包含哪些元素
 
 - "#" 号开头的注释
+
 - chmod u+rx filename 可执行权限
+
 - 执行命令
   - `bash ./filename.sh`
   - `./filename.sh`   需要有可执行权限
   - `source ./filename.sh`
   - `. filename.sh`
-- 备注：前两种执行方式，对当前运行环境没有影响（会产生一个子进程，sh脚本中在子进程中执行，执行结束回到父进程）；后两种则造成影响；
+  
+- 备注：
+
+  - 前两种执行方式，对当前运行环境没有影响（会产生一个子进程，sh脚本中在子进程中执行，执行结束回到父进程）；
+  - 后两种则造成影响；
+
+- 举例
+
+  ```shell
+  root@ubuntu:/home# cat test_demo.sh 
+  #!/bin/bash
+  cd ..
+  pwd
+  
+  # 前两种执行方式
+  root@ubuntu:/home# bash ./test_demo.sh 
+  /
+  root@ubuntu:/home# ./test_demo.sh 
+  /
+  
+  # 后两种执行方式
+  root@ubuntu:/home# source ./test_demo.sh 
+  /
+  root@ubuntu:/# 
+  root@ubuntu:/# cd -
+  /home
+  root@ubuntu:/home# . test_demo.sh 
+  /
+  root@ubuntu:/# 
+  ```
 
 内建命令与外部命令：
 
@@ -258,8 +289,6 @@ root@ubuntu:/home# echo ${demo_var}
 
 查看环境变量：`env |more`，`set |more`
 
-
-
 ```shell
 root@ubuntu:/home# echo $USER
 root
@@ -299,5 +328,32 @@ root@ubuntu:/home# ./test_demo.sh 11 22
 22
 ```
 
+```shell
+root@ubuntu:/home# mkdir test && cd $_
+root@ubuntu:/home/test# pwd
+/home/test
+```
 
+---
+
+### 环境变量配置文件
+
+配置文件
+
+- `/etc/profile`
+- `/etc/profile.d/`
+- `~/.bash_profile`
+- `~/.bashrc`
+- `/etc/bashrc`
+
+增加新的路径，并且在当前系统中的所有终端可用：
+
+```shell
+root@ubuntu:/# export PATH=$PATH:/new/path
+```
+
+若想在某个配置文件中把某个环境变量去掉： 
+
+- 需要两个操作，先将某个环境变量从文件删掉，并正确保存该环境，之后重新使用source命令执行该环境变量
+- 对于已经在运行的终端，需要使用"unset 变量名称"取消该变量的指定，或关闭后再打开该终端
 
