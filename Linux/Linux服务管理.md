@@ -94,15 +94,7 @@ iptables -P INPUT DROP   # 将input规则改为drop
 iptables -P INPUT ACCEPT   # 将上一条改的改回去
 ```
 
----
-
-#### iptables 的 nat 表
-
-#### iptables 配置文件
-
-#### firewallD 服务
-
-省略了，用到再去搜索使用。
+`iptables 的 nat 表，iptables 配置文件，firewallD 服务`  省略了，用到再去搜索使用。
 
 ---
 
@@ -160,9 +152,129 @@ telnet xxx.xxx.xxx.xxx
   test.txt                                    100%   12     0.0KB/s   00:00    
   ```
 
-  
+---
 
+### 文件服务
 
+#### FTP  vsftpd 服务
 
+安装：`yum install vsftpd ftp`
 
+启动：`systemctl [enable] start vsftpd.service`
+
+建议将 selinux 改为 permissive：
+
+- `getsebool -a |grep ftpd`
+- `setsebool -P <sebool> 1`
+
+---
+
+#### samba 服务
+
+安装：`yum install samba`
+
+配置文件：
+
+`/etc/samba/smb.conf`
+
+```
+[share]
+	comment=my_share
+	path=/data/share
+	read only=No
+```
+
+用户的设置：
+
+- smbpasswd命令： -a  添加用户；  -x  删除用户
+
+  ```
+  useradd use1
+  smbpasswd -a user1
+  pdbedit -L
+  ```
+
+- pdbedit：-L 查看用户
+
+服务的启动：
+
+`systemctl start| stop smb.service`
+
+- Linux 客户端挂载服务器共享的目录
+  - `mount -t cifs -o username=user1 //127.0.0.1/user1 /mnt`
+  - `umount /mnt`
+
+- Windows客户端
+  - 资源管理器访问共享
+  - 映射网络驱动器
+
+---
+
+Ubuntu 上设置共享目录
+
+安装：`apt-get install samba samba-client samba-common`
+
+修改配置：`vi /etc/samba/smb.conf`
+
+```
+[global]
+        workgroup = SAMBA
+        map to guest = bad user
+username map = /etc/samba/smbusers
+encrypt passwords = true
+passdb backend = smbpasswd
+smb passwd file =/etc/samba/smbpasswd
+        printing = cups
+        printcap name = cups
+        load printers = yes
+        cups options = raw
+[homes]
+        comment = Home Directories
+        valid users = %S, %D%w%S
+        browseable = No
+        read only = No
+        inherit acls = Yes
+[printers]
+        comment = All Printers
+        path = /var/tmp
+        printable = Yes
+        create mask = 0600
+        browseable = No
+[print$]
+        comment = Printer Drivers
+        path = /var/lib/samba/drivers
+        write list = root
+        create mask = 0664
+        directory mask = 0775
+[share]
+        comment = share
+        path = /data/share   # 这是我要共享linux机子上的目录，需要存在这个目录
+        available = Yes
+        browseable = Yes
+        public = Yes
+        writable = Yes
+        printable = No
+```
+
+启动：`service smb start` 或者 `systemctl restart smb.service`
+
+参考：Linux[设置共享文件夹](https://blog.csdn.net/qq_35573326/article/details/103732944?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-6.control&dist_request_id=1329188.9156.16178529985492373&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-6.control)，Samba[配置流程](https://blog.csdn.net/dingyanxxx/article/details/47205997)，samba[的安装与配置](https://www.cnblogs.com/jfyl1573/p/6514634.html)
+
+---
+
+#### nfs 服务
+
+- `/etc/exports`
+
+  `/data/share *(re, sync, all_squash)`
+
+- `showmount -e localhost`
+
+- 客户端使用挂载方式访问
+
+  `mount -t nfs localhost:/data/share /ent`
+
+- 启动 nfs 服务
+
+  `systemctl  start|stop nfs.service`
 
